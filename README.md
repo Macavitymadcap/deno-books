@@ -6,6 +6,9 @@ Books are added by either creating a json file with the book's information or
 searching through online data sources by ISBN to extract the information to be
 added.
 
+This repository holds scripts for interacting with the database through the 
+command line and a web server for viewing the books as a webapp.
+
 ## Book Format
 
 ```typescript
@@ -29,6 +32,8 @@ project.
 If you are adding a book manually that has no ISBN, set the `source` field to
 `ManualEntry` and the `isbn` to the title of the book in lowercase without
 spaces or punctuation, for example:
+
+![Manual Entry of book with no ISBN](images/brand-new-book.png)
 
 ```json
 {
@@ -55,6 +60,7 @@ should return a `Book` object if the book is found or `null` if it is not.
 
 ## Scripts
 
+- `deno task serve`: Start the web server in watch mode.
 - `deno task addisbn <isbn>`: Search for a book by ISBN on open library or
   google books and if found add it to the database
 - `deno task addjson <path>`: Add a book to the database based on a json file at
