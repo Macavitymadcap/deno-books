@@ -2,24 +2,26 @@ import { BookInfo } from "../data-source/model.ts";
 
 export const getBookInfoHTML = (bookInfo: BookInfo): string => {
   return `
-    <div id="book-info-${bookInfo.isbn}" class="book card">
+    <article id="book-info-${bookInfo.isbn}" class="card book">
       <h2>${bookInfo.title}</h2>
       <div class="flex-row centred">
-        <button 
-          hx-get="/editbookform/${bookInfo.isbn}" 
-          hx-target="#book-info-${bookInfo.isbn}" 
-          title="Edit Book"
-        >
-          &#9998;
-        </button>
-        <button 
-          class="destructive" 
-          hx-get="/confirmdelete/${bookInfo.isbn}" 
-          hx-target="#book-info-${bookInfo.isbn}"
-          title="Delete Book"
-        >
-          &#10006;
-        </button>
+        <span class="chip">
+          <button 
+            hx-get="/editbookform/${bookInfo.isbn}" 
+            hx-target="#book-info-${bookInfo.isbn}" 
+            title="Edit Book"
+          >
+            &#9998;
+          </button>
+          <button 
+            class="destructive" 
+            hx-get="/confirmdelete/${bookInfo.isbn}" 
+            hx-target="#book-info-${bookInfo.isbn}"
+            title="Delete Book"
+          >
+            &#10006;
+          </button>
+        </span>
       </div>
       <dl class="book-info">
         <dt>ISBN</dt><dd>${bookInfo.isbn}</dd>
@@ -30,6 +32,6 @@ export const getBookInfoHTML = (bookInfo: BookInfo): string => {
         ${bookInfo.pageCount ? `<dt>Page Count</dt><dd>${bookInfo.pageCount}</dd>` : ""}
         <dt>Source</dt><dd>${bookInfo.source}</dd>
       </dl>
-    </div>
+    </article>
   `;
 };
