@@ -5,7 +5,7 @@ export const searchBooks = async (req: Request): Promise<Response> => {
   const formData = await req.formData();
   const searchTerm = formData.get("search-term")?.toString() || "";
 
-  const bookDatabase = new BookDatabase("database/books.db");
+  const bookDatabase = new BookDatabase("src/database/books.db");
   const result = bookDatabase.searchBooks(searchTerm);
   bookDatabase.closeDB();
 

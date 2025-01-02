@@ -3,7 +3,7 @@ import { BookDatabase } from "../database/book-database.ts";
 import { getJSONFromPath } from "./get-json-from-path.ts";
 
 export const addBook = (bookInfo: BookInfo): Promise<void> => {
-  const bookDatabase = new BookDatabase("database/books.db");
+  const bookDatabase = new BookDatabase("src/database/books.db");
   console.log(`Adding book: "${bookInfo.title}"`);
   bookDatabase.addBook(bookInfo);
   bookDatabase.closeDB();

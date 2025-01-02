@@ -7,7 +7,7 @@ const lookupBook = (): Promise<void> => {
     Deno.exit(1);
   }
 
-  const db = new BookDatabase("database/books.db");
+  const db = new BookDatabase("src/database/books.db");
   const result = db.searchBooks(searchTerm);
   if (result.length === 0) {
     console.error(`No books found for search: '${searchTerm}'`);

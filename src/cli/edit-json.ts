@@ -4,7 +4,7 @@ import { getJSONFromPath } from "./get-json-from-path.ts";
 
 const editBook = (): Promise<void> => {
   const bookInfo = getJSONFromPath() as BookInfo;
-  const bookDatabase = new BookDatabase("database/books.db");
+  const bookDatabase = new BookDatabase("src/database/books.db");
   const dbBook = bookDatabase.getBook(bookInfo.isbn);
   if (!dbBook) {
     console.error(`Book with ISBN: ${bookInfo.isbn} not found.`);

@@ -24,7 +24,7 @@ export const editBook = async (req: Request) => {
     ).map((illustrator) => illustrator.trim());
   }
 
-  const bookDatabase = new BookDatabase("database/books.db");
+  const bookDatabase = new BookDatabase("src/database/books.db");
   const oldBookInfo = bookDatabase.getBook(bookInfo.isbn);
   if (oldBookInfo) {
     bookDatabase.editBook(bookInfo);

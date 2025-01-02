@@ -7,7 +7,7 @@ export const editBookForm = (req: Request) => {
   const pathname = decodeURIComponent(url.pathname);
   const isbn = pathname.split("/")[2];
 
-  const bookDatabase = new BookDatabase("database/books.db");
+  const bookDatabase = new BookDatabase("src/database/books.db");
   const oldBookInfo = bookDatabase.getBook(isbn);
   bookDatabase.closeDB();
 

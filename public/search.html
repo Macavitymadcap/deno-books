@@ -12,31 +12,33 @@
         <label for="search-term">Search by Title, Author or Illustrator</label>
         <input type="search" name="search-term">
       </div>
+      <span class="chip">
 
-      <button 
-        type="submit" 
-        hx-indicator="#search-indicator" 
-        title="Search Books"
-      >
-        &#128269;
-      </button>
-      
-      <button
-        class="destructive"
-        type="reset"
-        hx-indicator="#search-indicator"
-        _="on click remove <div.book/> in #search-results"
-        onclick="htmx.trigger('#search-form', 'htmx:abort')"
-        title="Clear Search"
-      >
-        &#10006;
-      </button>
+        <button 
+          type="submit" 
+          hx-indicator="#search-indicator" 
+          title="Search Books"
+        >
+          &#128269;
+        </button>
 
-      <img
-        id="search-indicator"
-        class="htmx-indicator"
-        src="static/spinner.gif"
-      />
+        <img
+          id="search-indicator"
+          class="htmx-indicator"
+          src="static/spinner.gif"
+        />
+        
+        <button
+          class="destructive"
+          type="reset"
+          hx-indicator="#search-indicator"
+          _="on click remove <div.book/> in #search-results"
+          onclick="htmx.trigger('#search-form', 'htmx:abort')"
+          title="Clear Search"
+        >
+          &#10006;
+        </button>
+      </span>
     </form>
   </search>
 

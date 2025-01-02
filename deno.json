@@ -1,11 +1,11 @@
 {
   "tasks": {
-    "addisbn": "deno run --allow-net --allow-read --allow-write ./cli/search-add.ts",
-    "addjson": "deno run --allow-read --allow-write ./cli/add-json.ts",
-    "deleteisbn": "deno run --allow-read --allow-write ./cli/delete-isbn.ts",
-    "editjson": "deno run --allow-read --allow-write ./cli/edit-json.ts",
-    "lookup": "deno run --allow-read --allow-write ./cli/lookup-db.ts",
-    "searchisbn": "deno run --allow-net ./cli/search-isbn.ts",
+    "addisbn": "deno run --allow-net --allow-read --allow-write ./src/cli/search-add.ts",
+    "addjson": "deno run --allow-read --allow-write ./src/cli/add-json.ts",
+    "deleteisbn": "deno run --allow-read --allow-write ./src/cli/delete-isbn.ts",
+    "editjson": "deno run --allow-read --allow-write ./src/cli/edit-json.ts",
+    "lookup": "deno run --allow-read --allow-write ./src/cli/lookup-db.ts",
+    "searchisbn": "deno run --allow-net ./src/cli/search-isbn.ts",
     "serve": "deno run --allow-net --allow-read --allow-read --allow-write --watch server.ts"
   },
   "imports": {

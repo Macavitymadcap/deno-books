@@ -24,7 +24,7 @@ export const addBook = async (req: Request) => {
     ).map((illustrator) => illustrator.trim());
   }
 
-  const bookDatabase = new BookDatabase("database/books.db");
+  const bookDatabase = new BookDatabase("src/database/books.db");
   let response;
   try {
     bookDatabase.addBook(bookInfo);
