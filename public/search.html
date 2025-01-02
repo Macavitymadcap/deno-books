@@ -1,0 +1,44 @@
+<article class="card">
+  <h2>Search Books</h2>
+
+  <search class="centred">
+    <form
+      id="search-form"
+      hx-post="/search"
+      hx-target="#search-results"
+      class="flex-row"
+    >
+      <div class="flex-column">
+        <label for="search-term">Search by Title, Author or Illustrator</label>
+        <input type="search" name="search-term">
+      </div>
+
+      <button 
+        type="submit" 
+        hx-indicator="#search-indicator" 
+        title="Search Books"
+      >
+        &#128269;
+      </button>
+      
+      <button
+        class="destructive"
+        type="reset"
+        hx-indicator="#search-indicator"
+        _="on click remove <div.book/> in #search-results"
+        onclick="htmx.trigger('#search-form', 'htmx:abort')"
+        title="Clear Search"
+      >
+        &#10006;
+      </button>
+
+      <img
+        id="search-indicator"
+        class="htmx-indicator"
+        src="static/spinner.gif"
+      />
+    </form>
+  </search>
+
+  <div id="search-results" class="search-results"></div>
+</article>

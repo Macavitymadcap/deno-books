@@ -7,7 +7,7 @@ const deleteBook = () => {
     Deno.exit(1);
   }
 
-  const bookDatabase = new BookDatabase("books.db");
+  const bookDatabase = new BookDatabase("database/books.db");
   bookDatabase.deleteBook(isbn);
   bookDatabase.closeDB();
   console.log(`Deleted book with ISBN: ${isbn}`);

@@ -1,6 +1,6 @@
 # Deno Books
 
-A simple book CRUD app written in Deno. 
+A simple book CRUD app written in Deno.
 
 Books are added by either creating a json file with the book's information or
 searching through online data sources by ISBN to extract the information to be
@@ -21,8 +21,8 @@ interface BookInfo {
 }
 ```
 
-You can see an example of a book in [book.json](./book.json) in the root of
-this project.
+You can see an example of a book in [book.json](./book.json) in the root of this
+project.
 
 ## Manual Entry
 
@@ -57,12 +57,12 @@ should return a `Book` object if the book is found or `null` if it is not.
 
 - `deno task addisbn <isbn>`: Search for a book by ISBN on open library or
   google books and if found add it to the database
-- `deno task addjson <path>`: Add a book to the database based on a json file
-  at a given path.
+- `deno task addjson <path>`: Add a book to the database based on a json file at
+  a given path.
 - `deno task deleteisbn <isbn>`: Delete a book from the database by a given ISBN
-- `deno task editjson <path>`: Update the book information in the database with a
-  json file at a given path with a corresponding existing ISBN
-- `deno task lookup <term>`: Search the database for a book by title,
-  author or illustrator. Use quotation marks (e.g. "like this") to contain
-  multi-word searches, and use a blank string (" ") to list all books.
+- `deno task editjson <path>`: Update the book information in the database with
+  a json file at a given path with a corresponding existing ISBN
+- `deno task lookup <term>`: Search the database for a book by title, author or
+  illustrator. Use quotation marks (e.g. "like this") to contain multi-word
+  searches, and use a blank string (" ") to list all books.
 - `deno task searchisbn <isbn>`: Search the data sources for a book by ISBN

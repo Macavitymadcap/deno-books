@@ -199,7 +199,7 @@ export class BookDatabase {
        JOIN book_${creatorType}s ON ${creatorType}s.id = book_${creatorType}s.${creatorType}_id 
        WHERE book_${creatorType}s.book_isbn = ?`,
       [isbn],
-    ).map((creator) => creator.name)
+    ).map((creator) => creator.name);
   }
 
   private updateBookCreators(

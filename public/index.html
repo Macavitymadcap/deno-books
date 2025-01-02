@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>StellaDandria</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="static/styles.css">
+    <script
+      src="https://unpkg.com/htmx.org@2.0.2"
+      integrity="sha384-Y7hw+L/jvKeWIRRkqWYfPcvVxHzVzn5REgzbawhxAuQGwX1XWe70vji+VSeHOThJ"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/hyperscript.org@0.9.12"></script>
+    <script type="module">
+      if (!("anchorName" in document.documentElement.style)) {
+        import("https://unpkg.com/@oddbird/css-anchor-positioning");
+      }
+    </script>
+    <script src="static/script.js" type="module"></script>
+  </head>
+
+  <body>
+    <header>
+      <h1>The Library of StellaDandria</h1>
+      <nav class="centred">
+        <menu class="flex-row">
+          <span class="chip">
+            <span class="chip-label">
+              Search Books
+            </span>
+
+            <button 
+              title="Search Books" 
+              hx-get="search.html" 
+              hx-target="#content" 
+              >
+              &#128269;
+            </button>
+          </span>
+
+          <span class="chip">
+            <span class="chip-label">
+              Add Book
+            </span>
+
+            <button 
+              title="Add Book"
+              hx-get="add-book.html" 
+              hx-target="#content" 
+            >
+              &#43;
+            </button>
+          </span>
+        </menu>
+      </nav>
+    </header>
+
+    <main>
+      <section id="content">
+      </section>
+    </main>
+
+    <footer class="centred">
+      <div class="flex-row">
+        <p>&copy; 2024 StellaDandria</p>
+       </div>
+    </footer>
+  </body>
+</html>

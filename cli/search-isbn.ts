@@ -10,7 +10,6 @@ export const searchISBN = async (): Promise<BookInfo | undefined> => {
 
   const bookInfo = await getBookByISBN(isbn);
   if (bookInfo) {
-    console.log(JSON.stringify(bookInfo, null, 2));
     return bookInfo;
   } else {
     console.error(`Book with ISBN: ${isbn} not found.`);
@@ -19,5 +18,8 @@ export const searchISBN = async (): Promise<BookInfo | undefined> => {
 };
 
 if (import.meta.main) {
-  await searchISBN();
+  const bookInfo = await searchISBN();
+  if (bookInfo != undefined) {
+    console.log(JSON.stringify(bookInfo, null, 2));
+  }
 }
