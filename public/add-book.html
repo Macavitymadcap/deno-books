@@ -12,22 +12,24 @@
         <label for="addisbn">Add ISBN</label>
         <input type="text" name="addisbn" id="addisbn" required>
       </div>
-      <button type="submit" hx-indicator="#addisbn-indicator" title="Search ISBN">&#128269;</button>
-      <button
-        class="destructive"
-        type="reset"
-        hx-indicator="#addisbn-indicator"
-        onclick="htmx.trigger('#add-isbn-form', 'htmx:abort')"
-        _="on click set @value of <input/> in #add-book-form to ''"
-        title="Clear"
-      >
-        &#10006;
-      </button>
-      <img
-        id="addisbn-indicator"
-        class="htmx-indicator"
-        src="static/spinner.gif"
-      />
+      <span class="chip">
+        <button type="submit" hx-indicator="#addisbn-indicator" title="Search ISBN">&#128269;</button>
+        <img
+          id="addisbn-indicator"
+          class="htmx-indicator"
+          src="static/spinner.gif"
+        />
+        <button
+          class="destructive"
+          type="reset"
+          hx-indicator="#addisbn-indicator"
+          onclick="htmx.trigger('#add-isbn-form', 'htmx:abort')"
+          _="on click set @value of <input/> in #add-book-form to ''"
+          title="Clear"
+        >
+          &#10006;
+        </button>
+      </span>
     </form>
   </search>
 
