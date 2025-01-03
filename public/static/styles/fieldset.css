@@ -1,0 +1,4 @@
+fieldset {
+    height: min-content;
+    margin: var(--spacing-sm);
+  }

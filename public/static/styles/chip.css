@@ -1,0 +1,25 @@
+span.chip {
+    display:inline-flex;
+    height: auto;
+    background: var(--secondary-gradient);
+    padding: var(--spacing-sm);
+    border-radius: var(--squarish-radius);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all var(--transition-fast);
+    box-shadow: var(--surface-shadow);
+    width: min-content;
+    align-items: center;
+    justify-content: center;
+  
+    span.chip-label {
+      display: flex;
+      flex-wrap: wrap;
+      padding: var(--spacing-sm);
+    }
+  
+    &:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+  }

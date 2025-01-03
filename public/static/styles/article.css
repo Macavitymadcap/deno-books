@@ -1,0 +1,41 @@
+article.card {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    background: var(--card-background);
+    border: 1px solid var(--card-border);
+    border-radius: var(--border-radius);
+    box-shadow: var(--surface-shadow);
+    padding: var(--spacing-sm);
+    transition:
+      transform var(--transition-medium),
+      box-shadow var(--transition-medium);
+  
+    h2 {
+      color: color-mix(in srgb, var(--text-colour) 90%, var(--primary-colour));
+      text-shadow: var(--text-shadow);
+    }
+  }
+  
+  article.book {
+    background: var(--secondary-gradient);
+  
+    h2 {
+      color: var(--primary-colour);
+    }
+  
+    dl.book-info {
+      padding: var(--spacing-sm);
+  
+      dt {
+        font-weight: bold;
+        color: var(--primary-colour);
+        text-shadow: var(--text-shadow);
+      }
+  
+      dd {
+        margin-left: var(--spacing-sm);
+      }
+    }
+  }
+  

@@ -1,0 +1,7 @@
+div.search-results {
+    padding: var(--spacing-lg);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-sm);
+    justify-content: center;
+  }

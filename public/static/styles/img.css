@@ -1,0 +1,5 @@
+img.htmx-indicator {
+    display: inline-block;
+    height: var(--button-minimum-hw);
+    width: var(--button-minimum-hw);
+  }
