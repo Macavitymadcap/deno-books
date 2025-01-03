@@ -1,13 +1,14 @@
 # Deno Books
 
-A simple book CRUD app written in Deno.
+A simpleCRUD web app written in Typescript, HTML, CSS and SQL using the 
+[Deno](https://deno.com) runtime for storing data about the contents of
+my bookshelves. 
 
-Books are added by either creating a json file with the book's information or
-searching through online data sources by ISBN to extract the information to be
-added.
+The frontend and backend make use of [htmx](https://htmx.org) to achieve 
+seemless UI updates without the need for a frontend framework. The backend
+is a simple REST API that deals with a SQLite database. The app is deployed
+with [fly](https://fly.io/).
 
-This repository holds scripts for interacting with the database through the 
-command line and a web server for viewing the books as a webapp.
 
 ## Book Format
 
@@ -27,28 +28,6 @@ interface BookInfo {
 You can see an example of a book in [book.json](./book.json) in the root of this
 project.
 
-## Manual Entry
-
-If you are adding a book manually that has no ISBN, set the `source` field to
-`ManualEntry` and the `isbn` to the title of the book in lowercase without
-spaces or punctuation, for example:
-
-![Manual Entry of book with no ISBN](images/brand-new-book.png)
-
-```json
-{
-  "isbn": "theshortstoriesofhgwells",
-  "title": "The Short Stories of H.G. Wells",
-  "authors": [
-    "H. G. Wells"
-  ],
-  "publisher": "Ernest Benn Limited",
-  "publishDate": "1923",
-  "pageCount": 1148,
-  "source": "ManualEntry"
-}
-```
-
 ## Data Sources
 
 - [Open Library](https://openlibrary.org/)
@@ -61,14 +40,3 @@ should return a `Book` object if the book is found or `null` if it is not.
 ## Scripts
 
 - `deno task serve`: Start the web server in watch mode.
-- `deno task addisbn <isbn>`: Search for a book by ISBN on open library or
-  google books and if found add it to the database
-- `deno task addjson <path>`: Add a book to the database based on a json file at
-  a given path.
-- `deno task deleteisbn <isbn>`: Delete a book from the database by a given ISBN
-- `deno task editjson <path>`: Update the book information in the database with
-  a json file at a given path with a corresponding existing ISBN
-- `deno task lookup <term>`: Search the database for a book by title, author or
-  illustrator. Use quotation marks (e.g. "like this") to contain multi-word
-  searches, and use a blank string (" ") to list all books.
-- `deno task searchisbn <isbn>`: Search the data sources for a book by ISBN

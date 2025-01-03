@@ -1,7 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const token = localStorage.getItem('token');
-    if (!token) {
-      htmx.ajax('GET', '/login.html', '#content');
+    if (localStorage.getItem("token")) {
+        htmx.ajax("GET", "search.html", { target: "#content"});
+    } else {
+        htmx.ajax("GET", "login.html", { target: "#content"});
     }
 });
 

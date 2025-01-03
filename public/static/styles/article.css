@@ -1,6 +1,7 @@
 article.card {
     width: 100%;
     max-width: 100%;
+    overflow-y: auto;
     box-sizing: border-box;
     background: var(--card-background);
     border: 1px solid var(--card-border);

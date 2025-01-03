@@ -89,7 +89,7 @@ export const getBookFormHTML = (bookInfo: BookInfo): string => {
             <input type="text" name="source" id="source" list="sources" value="${bookInfo.source}">
             <datalist id="sources">
               <option value="OpenLibrary">
-              <option value="GoogleBooks">
+              <option value="Google Books">
               <option value="ManualEntry">
             </datalist>
           </div>
