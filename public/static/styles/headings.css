@@ -1,4 +1,6 @@
 header {
+  background: var(--secondary-colour);
+  border-radius: var(--squarish-radius);
   position: fixed;
   top: 0;
   width: 100%;
