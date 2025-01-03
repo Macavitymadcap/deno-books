@@ -7,6 +7,18 @@ import { editBookForm } from "./services/edit-book-form.ts";
 import { editBook } from "./services/edit-book.ts";
 import { getBook } from "./services/get-book.ts";
 import { searchBooks } from "./services/search-books.ts";
+import { requireAuth } from "./auth/middleware/auth-middleware.ts";
+import { login } from "./auth/services/login.ts";
+import { register } from "./auth/services/register.ts";
+
+const PUBLIC_PATHS = [
+  '/',
+  '/static',
+  '/login.html',
+  '/register.html',
+  '/login',
+  '/register'
+];
 
 export const handler = (): Deno.ServeHandler<Deno.NetAddr> => {
   return async (req: Request): Promise<Response> => {
@@ -14,15 +26,32 @@ export const handler = (): Deno.ServeHandler<Deno.NetAddr> => {
     const url = new URL(req.url);
     const pathname = decodeURIComponent(url.pathname);
 
-    if (pathname.startsWith("/static")) {
-      return serveDir(req, {
-        fsRoot: `${rootPath}`,
-      });
+    if (PUBLIC_PATHS.some(path => pathname.startsWith(path))) {
+      if (pathname.startsWith("/static")) {
+        return serveDir(req, { fsRoot: `${Deno.cwd()}/public` });
+      }
+      
+      if (pathname === "/" || pathname === "/index.html") {
+        const file = await Deno.open(`${Deno.cwd()}/public/index.html`, { read: true });
+        return new Response(file.readable);
+      }
+
+      if (pathname === "/login") {
+        return login(req);
+      }
+
+      if (pathname === "/register") {
+        return register(req);
+      }
+
+      if (pathname.endsWith('login.html') || pathname.endsWith('register.html')) {
+        const file = await Deno.open(`${Deno.cwd()}/public${pathname}`, { read: true });
+        return new Response(file.readable);
+      }
     }
 
-    if (pathname === "/" && req.method === "GET") {
-      const file = await Deno.open(`${rootPath}/index.html`, { read: true });
-      return new Response(file.readable);
+    if (!await requireAuth(req)) {
+      return new Response("Unauthorized", { status: 401 });
     }
 
     if (pathname.endsWith(".html") && req.method === "GET") {

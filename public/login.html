@@ -1,0 +1,27 @@
+<article class="card">
+    <h2>Login</h2>
+    <form id="login-form" hx-post="/login" class="flex-column" hx-target="#content">
+        <div class="flex-column">
+        <label for="username">Username</label>
+        <input type="text" name="username" id="username" autocomplete="username" required>
+        </div>
+        
+        <div class="flex-column">
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" autocomplete="current-password" required>
+        </div>
+
+        <div class="flex-row">
+        <button type="submit" title="Login" class="text">Login</button>
+        <button 
+            hx-get="register.html" 
+            hx-target="#content"
+            type="button"
+            class="text"
+            hx-swap="innerHTML"
+        >
+            Register
+        </button>
+        </div>
+    </form>
+</article>

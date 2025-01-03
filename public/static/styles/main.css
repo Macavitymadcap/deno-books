@@ -1,9 +1,12 @@
 main {
-    width: 100%;
+    width: 90%;
     margin: 0 auto;
+    flex: 1;
+    margin-top: 170px; /* Adjust based on header height */
+    margin-bottom: 30px; /* Adjust based on footer height */
+    overflow-y: auto;
   
     article.card {
       margin: 0 auto;
-      width: 100%;
     }
   }
