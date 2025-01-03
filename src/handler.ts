@@ -13,7 +13,10 @@ import { register } from "./auth/services/register.ts";
 
 const PUBLIC_PATHS = [
   '/',
+  '/favicon.ico',
   '/static',
+  '/index.html',
+  '/nav.html',
   '/login.html',
   '/register.html',
   '/login',
@@ -44,7 +47,7 @@ export const handler = (): Deno.ServeHandler<Deno.NetAddr> => {
         return register(req);
       }
 
-      if (pathname.endsWith('login.html') || pathname.endsWith('register.html')) {
+      if (pathname.endsWith('login.html') || pathname.endsWith('register.html') || pathname.endsWith('nav.html')) {
         const file = await Deno.open(`${Deno.cwd()}/public${pathname}`, { read: true });
         return new Response(file.readable);
       }

@@ -13,6 +13,12 @@ document.addEventListener('htmx:beforeRequest', function(evt) {
     }
 });
 
+document.addEventListener('htmx:afterRequest', function(evt) {
+    if (evt.detail.requestConfig.url === "/login" && evt.detail.xhr.status === 200) {
+        htmx.ajax("GET", "/nav.html", { target: "#main-nav" });
+    }
+});
+
 globalThis.logout = function() {
     localStorage.removeItem('token');
     htmx.ajax('GET', '/login.html', '#content');

@@ -1,0 +1,28 @@
+<nav class="centred">
+    <menu class="flex-row">
+      <span class="chip">
+        <button 
+          title="Search Books" 
+          hx-get="search.html" 
+          hx-target="#content" 
+          >
+          &#128269;
+        </button>
+
+        <button 
+          title="Add Book"
+          hx-get="add-book.html" 
+          hx-target="#content" 
+        >
+          &#43;
+        </button>
+        <button 
+          onclick="logout()" 
+          title="Logout"
+          class="destructive"
+        >
+          &#128682;
+        </button>
+      </span>
+    </menu>
+</nav>
