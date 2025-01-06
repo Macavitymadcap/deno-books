@@ -11,6 +11,10 @@ primary_region = 'lhr'
 [env]
   PORT = '8080'
 
+[mounts]
+  source = "litefs"
+  destination = "/var/lib/litefs"
+
 [processes]
   app = 'run -A ./server.ts'
 

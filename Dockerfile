@@ -7,6 +7,7 @@ FROM ${BIN_IMAGE} AS bin
 FROM frolvlad/alpine-glibc:alpine-3.13
 
 RUN apk --no-cache add ca-certificates
+RUN apk add ca-certificates fuse3 sqlite
 
 RUN addgroup --gid 1000 deno \
   && adduser --uid 1000 --disabled-password deno --ingroup deno \
@@ -19,9 +20,10 @@ ENV DENO_INSTALL_ROOT /usr/local
 ARG DENO_VERSION
 ENV DENO_VERSION=${DENO_VERSION}
 COPY --from=bin /deno /bin/deno
+COPY --from=flyio/litefs:0.5 /usr/local/bin/litefs /usr/local/bin/litefs
 
 WORKDIR /deno-dir
 COPY . .
 
-ENTRYPOINT ["/bin/deno"]
+ENTRYPOINT ["litefs", "mount"]
 CMD ["run", "https://deno.land/std/examples/echo_server.ts"]
