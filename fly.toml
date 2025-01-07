@@ -1,9 +1,8 @@
-# fly.toml app configuration file generated for deno-books on 2025-01-03T13:14:16Z
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'deno-books'
+app = 'stelladandria'
 primary_region = 'lhr'
 
 [build]
