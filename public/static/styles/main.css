@@ -2,8 +2,8 @@ main {
     width: 90%;
     margin: 0 auto;
     flex: 1;
-    margin-top: 200px; /* Adjust based on header height */
-    margin-bottom: 0; /* Adjust based on footer height */
+    margin-top: 200px;
+    margin-bottom: 0;
     overflow-y: auto;
   
     article.card {
